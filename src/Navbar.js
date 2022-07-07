@@ -1,15 +1,10 @@
 import {
-  Box,
-  Divider,
   HStack,
-  Text,
   Select,
   Button,
-  Center,
   Flex,
   Image,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
 function Navbar() {
   return (
     <Flex

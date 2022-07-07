@@ -14,13 +14,24 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import House1 from "./assets/house1.webp";
 import House2 from "./assets/house2.webp";
 import House3 from "./assets/house3.webp";
 import House4 from "./assets/house4.jpg";
 import House5 from "./assets/house5.webp";
+import Apartment1 from "./assets/apartment1.jpg";
+import Apartment2 from "./assets/apartment2.jpg";
+import Apartment3 from "./assets/apartment3.jpg";
+import Apartment4 from "./assets/apartment4.jpg";
+import Apartment5 from "./assets/apartment5.jpg";
+import TownHome1 from "./assets/townhome1.jpg";
+import TownHome2 from "./assets/townhome2.jpg";
+import TownHome3 from "./assets/townhome3.jpg";
+import TownHome4 from "./assets/townhome4.jpg";
+import TownHome5 from "./assets/townhome5.jpg";
+import TownHome6 from "./assets/townhome6.jpg";
 import "react-datepicker/dist/react-datepicker.css";
 
 function Home() {
@@ -36,12 +47,12 @@ function Home() {
       location: "Alaska",
       type: "house",
       category: "rent",
-      available: "August 20, 2022"
+      available: "August 20, 2022",
     },
     {
       image: House1,
       price: 10000,
-      name: "Palm Habour",
+      name: "Beverly Springfield",
       bhk: 3,
       bathrooms: 2,
       area: "8x10",
@@ -49,7 +60,7 @@ function Home() {
       location: "Florida",
       type: "house",
       category: "rent",
-      available: "July 20, 2022"
+      available: "July 20, 2022",
     },
     {
       image: House5,
@@ -58,11 +69,11 @@ function Home() {
       bhk: 3,
       bathrooms: 2,
       area: "8x10",
-      address: "2699 Green Valley, Highland Lake, Alaska",
-      location: "Alaska",
+      address: "2699 Green Valley, Highland Lake, New Mexico",
+      location: "New Mexico",
       type: "house",
       category: "rent",
-      available: "July 5 20, 2022"
+      available: "July 5 20, 2022",
     },
     {
       image: House2,
@@ -75,7 +86,7 @@ function Home() {
       location: "New York",
       type: "house",
       category: "rent",
-      available: "August 20, 2022"
+      available: "August 20, 2022",
     },
     {
       image: House4,
@@ -88,7 +99,7 @@ function Home() {
       location: "New Jersey",
       type: "house",
       category: "rent",
-      available: "July 7, 2022"
+      available: "July 7, 2022",
     },
     {
       image: House3,
@@ -97,11 +108,11 @@ function Home() {
       bhk: 3,
       bathrooms: 2,
       area: "8x10",
-      address: "2699 Green Valley, Highland Lake, Alaska",
-      location: "Alaska",
+      address: "2699 Green Valley, Highland Lake, Texas",
+      location: "Texas",
       type: "house",
       category: "rent",
-      available: "August 20, 2022"
+      available: "August 20, 2022",
     },
     {
       image: House4,
@@ -114,7 +125,151 @@ function Home() {
       location: "Washington",
       type: "house",
       category: "rent",
-      available: "July 6, 2022"
+      available: "July 6, 2022",
+    },
+    {
+      image: Apartment1,
+      price: 2500,
+      name: "Palm Habour",
+      bhk: 3,
+      bathrooms: 2,
+      area: "8x10",
+      address: "2699 Green Valley, Highland Lake, California",
+      location: "California",
+      type: "apartments/condos/co-ops",
+      category: "rent",
+      available: "July 16, 2022",
+    },
+    {
+      image: Apartment2,
+      price: 18000,
+      name: "Palm Habour",
+      bhk: 6,
+      bathrooms: 2,
+      area: "8x10",
+      address: "2699 Green Valley, Highland Lake, California",
+      location: "California",
+      type: "apartments/condos/co-ops",
+      category: "rent",
+      available: "November 20, 2022",
+    },
+    {
+      image: Apartment3,
+      price: 5000,
+      name: "Palm Habour",
+      bhk: 2,
+      bathrooms: 2,
+      area: "8x10",
+      address: "2699 Green Valley, Highland Lake, New York",
+      location: "New York",
+      type: "apartments/condos/co-ops",
+      category: "rent",
+      available: "July 6, 2022",
+    },
+    {
+      image: Apartment4,
+      price: 1250,
+      name: "Palm Habour",
+      bhk: 2,
+      bathrooms: 2,
+      area: "8x10",
+      address: "2699 Green Valley, Highland Lake, Texas",
+      location: "Texas",
+      type: "apartments/condos/co-ops",
+      category: "rent",
+      available: "October 6, 2022",
+    },
+    {
+      image: Apartment5,
+      price: 500,
+      name: "Faulkner Ave",
+      bhk: 2,
+      bathrooms: 2,
+      area: "8x10",
+      address: "909 Woodland St. Michigan, New Mexico",
+      location: "New Mexico",
+      type: "apartments/condos/co-ops",
+      category: "rent",
+      available: "September 1, 2022",
+    },
+
+    {
+      image: TownHome1,
+      price: 500,
+      name: "Faulkner Ave",
+      bhk: 2,
+      bathrooms: 2,
+      area: "8x10",
+      address: "909 Woodland St. Michigan, Florida",
+      location: "Florida",
+      type: "townhome",
+      category: "rent",
+      available: "September 1, 2022",
+    },
+    {
+      image: TownHome2,
+      price: 4500,
+      name: "Faulkner Ave",
+      bhk: 4,
+      bathrooms: 2,
+      area: "8x10",
+      address: "909 Woodland St. Michigan, New Jersey",
+      location: "New Jersey",
+      type: "townhome",
+      category: "rent",
+      available: "September 10, 2022",
+    },
+    {
+      image: TownHome3,
+      price: 500,
+      name: "Faulkner Ave",
+      bhk: 2,
+      bathrooms: 2,
+      area: "8x10",
+      address: "909 Woodland St. Michigan, Alaska",
+      location: "Alaska",
+      type: "townhome",
+      category: "rent",
+      available: "September 1, 2022",
+    },
+    {
+      image: TownHome4,
+      price: 5000,
+      name: "Faulkner Ave",
+      bhk: 2,
+      bathrooms: 2,
+      area: "8x10",
+      address: "909 Woodland St. Michigan, New Mexico",
+      location: "New Mexico",
+      type: "townhome",
+      category: "rent",
+      available: "December 1, 2022",
+    },
+    {
+      image: TownHome5,
+      price: 500,
+      name: "Faulkner Ave",
+      bhk: 2,
+      bathrooms: 2,
+      area: "8x10",
+      address: "909 Woodland St. Michigan, Florida",
+      location: "Florida",
+      type: "townhome",
+      category: "rent",
+      available: "September 1, 2022",
+    },
+    {
+      image: TownHome6,
+      price: 15000,
+      name: "Beverly Springfield",
+      bhk: 5,
+      bathrooms: 2,
+      area: "8x10",
+      address: "909 Woodland St. Michigan, Texas",
+      location: "Texas",
+      type: "townhome",
+      category: "rent",
+      available: "September 1, 2022",
     },
   ];
   const [data, setData] = useState(dummyData);
@@ -129,13 +284,7 @@ function Home() {
     "Texas",
     "Washington",
   ];
-  const propertyTypes = [
-    "Houses",
-    "Land",
-    "Residential",
-    "Commercial",
-    "Industrial",
-  ];
+  const propertyTypes = ["Houses", "Apartments/Condos/Co-ops", "Townhomes"];
   const [location, setLocation] = useState("");
   const [when, setWhen] = useState();
   const [price, setPrice] = useState({ min: 0, max: 0 });
@@ -166,25 +315,25 @@ function Home() {
         }
       });
     }
-    if (price.max>0) {
+    if (price.max > 0) {
       filteredData = filteredData.filter((item) => {
         const priceValue = item.price;
         if (price.min <= priceValue && price.max >= priceValue) {
           return item;
         }
       });
-    } 
-    if(when){
+    }
+    if (when) {
       filteredData = filteredData.filter((item) => {
         const available = new Date(item.available);
-        if (available.getTime()<=when.getTime()) {
+        if (available.getTime() <= when.getTime()) {
           return item;
         }
       });
     }
     setData(filteredData);
   };
-  
+
   return (
     <Box bg={"white"} maxW={"100vw"} className="App">
       <Box
@@ -202,11 +351,10 @@ function Home() {
               placeholder="Search with search bar"
               bg="white"
               textAlign={"center"}
-              onChange={locationHandle}
               focusBorderColor={"#805AD5"}
             >
-              {category.map((c) => (
-                <option value={`${c}`}>{c}</option>
+              {category.map((c, id) => (
+                <option value={c} key={id}>{c} </option>
               ))}
             </Select>
           </form>
@@ -231,8 +379,8 @@ function Home() {
               focusBorderColor={"#805AD5"}
               border={"none"}
             >
-              {locations.map((loc) => (
-                <option value={`${loc}`}>{loc}</option>
+              {locations.map((loc, id) => (
+                <option value={loc} key={id}>{loc}</option>
               ))}
             </Select>
           </Flex>
@@ -268,12 +416,10 @@ function Home() {
               min={0}
               max={50000}
               onChangeEnd={(val) => {
-                // console.log(val);
                 setPrice({
                   min: val[0],
                   max: val[1],
                 });
-                // console.log(price);
               }}
             >
               <RangeSliderTrack>
@@ -303,8 +449,8 @@ function Home() {
               onChange={propertyHandle}
               _focusVisible="none"
             >
-              {propertyTypes.map((prop) => (
-                <option value={`${prop}`} key={prop.id}>
+              {propertyTypes.map((prop, id) => (
+                <option value={prop} key={id}>
                   {prop}
                 </option>
               ))}
@@ -322,7 +468,6 @@ function Home() {
           spacing={"20"}
           minChildWidth="20vw"
           marginY={"2vmax"}
-          // justify="center"
         >
           {data.map((item) => (
             <Box
@@ -331,7 +476,6 @@ function Home() {
               h="55vh"
               flexDirection={"column"}
               borderRadius="20px"
-              // border="1px solid black"
             >
               <Image
                 src={item.image}

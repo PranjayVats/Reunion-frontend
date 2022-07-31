@@ -13,6 +13,7 @@ import {
   RangeSliderTrack,
   RangeSliderFilledTrack,
   RangeSliderThumb,
+  VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
@@ -33,6 +34,7 @@ import TownHome4 from "./assets/townhome4.jpg";
 import TownHome5 from "./assets/townhome5.jpg";
 import TownHome6 from "./assets/townhome6.jpg";
 import "react-datepicker/dist/react-datepicker.css";
+import "./Home.css";
 
 function Home() {
   var dummyData = [
@@ -335,61 +337,78 @@ function Home() {
   };
 
   return (
-    <Box bg={"white"} maxW={"100vw"} className="App">
+    <Box bg="white" maxW="100vw" className="App">
       <Box
-        w={"100%"}
-        padding={"4vmax 8vmax"}
-        bg={"#F8F7FF"}
+        w="100%"
+        padding={["1em 1.5em", "4em 5em", "4em 6em", "4em 6em"]}
+        bg="#F8F7FF"
         alignItems="center"
       >
-        <HStack justifyContent={"space-between"} marginY="2vmax">
-          <Text fontSize={"2.5vmax"} fontWeight={700} color={"purple.900"}>
+        <HStack justifyContent="space-between" marginY="1.2em">
+          <Text fontSize="1.8em" fontWeight={700} color="purple.900">
             Search properties to rent
           </Text>
-          <form>
-            <Select
-              placeholder="Search with search bar"
-              bg="white"
-              textAlign={"center"}
-              focusBorderColor={"#805AD5"}
-            >
-              {category.map((c, id) => (
-                <option value={c} key={id}>{c} </option>
-              ))}
-            </Select>
-          </form>
+          <Select
+            placeholder="Search with search bar"
+            bg="white"
+            textAlign="center"
+            focusBorderColor="#805AD5"
+            w="18em"
+          >
+            {category.map((c, id) => (
+              <option value={c} key={id}>
+                {c}
+              </option>
+            ))}
+          </Select>
         </HStack>
         <HStack
-          h={"8.5%"}
-          w={"100%"}
-          bg={"white"}
-          padding={"2vmax"}
-          borderRadius={"10px"}
-          justifyContent={"space-between"}
+          display={["none", "none", "flex", "flex"]}
+          h="7.5em"
+          w="100%"
+          bg="white"
+          padding="1em"
+          borderRadius="10px"
+          justifyContent="space-evenly"
         >
-          <Flex direction={"column"} alignItems="center" w={"12vw"} h="10vh">
-            <Text fontSize={"1.2vmax"} color="gray">
+          <Flex
+            flexDir="column"
+            alignItems="center"
+            w="12vw"
+            h="5em"
+            justifyContent="center"
+          >
+            <Text fontSize="1em" color="gray">
               Location
             </Text>
             <Select
               placeholder="Search Location"
               bg="white"
+              textAlign="center"
               onChange={locationHandle}
               _focusVisible="none"
-              focusBorderColor={"#805AD5"}
-              border={"none"}
+              focusBorderColor="#805AD5"
+              border="none"
             >
               {locations.map((loc, id) => (
-                <option value={loc} key={id}>{loc}</option>
+                <option value={loc} key={id}>
+                  {loc}
+                </option>
               ))}
             </Select>
           </Flex>
 
-          <Center height="40px">
+          <Center height="2.5em">
             <Divider orientation="vertical" borderColor="gray" />
           </Center>
-          <Flex direction={"column"} w={"12vw"} h="10vh">
-            <Text fontSize={"1.2vmax"} color="gray">
+          <Flex
+            flexDir="column"
+            w="12vw"
+            h="5em"
+            justifyContent="center"
+            alignContent="center"
+          >
+            <Text fontSize="1em" color="gray" textAlign="center">
               Select Move-in Date
             </Text>
             <Center>
@@ -401,16 +420,23 @@ function Home() {
               />
             </Center>
           </Flex>
-          <Center height="40px">
+          <Center height="2.5em">
             <Divider orientation="vertical" borderColor="gray" />
           </Center>
 
-          <Flex direction={"column"} alignItems="center" w="12vw">
-            <Text fontSize={"1.2vmax"} color="gray">
+          <Flex
+            flexDir="column"
+            alignItems="center"
+            w="12vw"
+            h="5em"
+            justifyContent="center"
+          >
+            <Text fontSize="1em" color="gray">
               Price
             </Text>
             <RangeSlider
-              colorScheme={"purple"}
+              h="3.3vh"
+              colorScheme="purple"
               aria-label={["min", "max"]}
               defaultValue={[0, 0]}
               min={0}
@@ -428,24 +454,25 @@ function Home() {
               <RangeSliderThumb index={0} />
               <RangeSliderThumb index={1} />
             </RangeSlider>
-            <Text fontSize={"1.2vmax"} color="gray">
+            <Text fontSize="0.9em" >
               ${price.min} - ${price.max}
             </Text>
           </Flex>
 
-          <Center height="40px">
+          <Center height="2.5em">
             <Divider orientation="vertical" borderColor="gray" />
           </Center>
 
-          <Flex direction={"column"} alignItems="center" w="12vw">
-            <Text fontSize={"1.2vmax"} color="gray">
+          <Flex direction="column" alignItems="center" w="12vw" h="10v">
+            <Text fontSize="1em" color="gray">
               Property Type
             </Text>
             <Select
+              w="12vw"
               textAlign="center"
-              focusBorderColor={"#805AD5"}
+              focusBorderColor="#805AD5"
               placeholder="Select type"
-              border={"none"}
+              border="none"
               onChange={propertyHandle}
               _focusVisible="none"
             >
@@ -456,46 +483,153 @@ function Home() {
               ))}
             </Select>
           </Flex>
-          <Center height="40px">
+          <Center height="2.5em">
             <Divider orientation="vertical" borderColor="gray" />
           </Center>
-          <Button colorScheme={"purple"} onClick={submitHandle}>
+          <Button colorScheme="purple" size="md" onClick={submitHandle}>
             Search
           </Button>
         </HStack>
-        <SimpleGrid
-          maxW="100%"
-          spacing={"20"}
-          minChildWidth="20vw"
-          marginY={"2vmax"}
+        <VStack
+          display={["flex", "flex", "none", "none"]}
+          h="23em"
+          w="100%"
+          bg="white"
+          padding="1em"
+          borderRadius="10px"
+          className="responsive"
         >
-          {data.map((item) => (
-            <Box
-              maxW="25vw"
+          <Flex
+            w="100%"
+            h="3em"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Text fontSize="1em" w="6em" color="gray">
+              Location
+            </Text>
+            <Select
+              placeholder="Search Location"
               bg="white"
-              h="55vh"
-              flexDirection={"column"}
-              borderRadius="20px"
+              onChange={locationHandle}
+              _focusVisible="none"
+              focusBorderColor="#805AD5"
+              border="none"
+              w="10em"
             >
+              {locations.map((loc, id) => (
+                <option value={loc} key={id}>
+                  {loc}
+                </option>
+              ))}
+            </Select>
+          </Flex>
+          <Flex
+            w="100%"
+            h="5em"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Text fontSize="1em" w="8em" color="gray">
+              Select Move-in Date
+            </Text>
+            <Flex>
+              <DatePicker
+                placeholderText="Set Date"
+                selected={when}
+                dateFormat="MMMM d, yyyy"
+                onChange={(date) => setWhen(date)}
+              />
+            </Flex>
+          </Flex>
+
+          <Flex
+            w="100%"
+            h="3em"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Text fontSize="1em" color="gray" w="3em">
+              Price
+            </Text>
+            <RangeSlider
+              colorScheme="purple"
+              aria-label={["min", "max"]}
+              defaultValue={[0, 0]}
+              min={0}
+              max={50000}
+              onChangeEnd={(val) => {
+                setPrice({
+                  min: val[0],
+                  max: val[1],
+                });
+              }}
+              w="9em"
+            >
+              <RangeSliderTrack>
+                <RangeSliderFilledTrack />
+              </RangeSliderTrack>
+
+              <RangeSliderThumb index={0} />
+              <RangeSliderThumb index={1} />
+            </RangeSlider>
+          </Flex>
+          <Flex w="100%" justifyContent="flex-end">
+            <Text fontSize="0.7em" color="gray">
+              ${price.min} - ${price.max}
+            </Text>
+          </Flex>
+          <Flex
+            w="100%"
+            h="3em"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Text fontSize="1em" color="gray">
+              Property Type
+            </Text>
+            <Select
+              w="17em"
+              textAlign="right"
+              focusBorderColor="#805AD5"
+              placeholder="Select type"
+              border="none"
+              onChange={propertyHandle}
+              _focusVisible="none"
+            >
+              {propertyTypes.map((prop, id) => (
+                <option value={prop} key={id}>
+                  {prop}
+                </option>
+              ))}
+            </Select>
+          </Flex>
+          <Button colorScheme="purple" onClick={submitHandle}>
+            Search
+          </Button>
+        </VStack>
+        <SimpleGrid w="100%" spacingY="10" marginY="4em" justifyItems="center" minChildWidth="18.5em">
+          {data && data.map((item) => (
+            <Box bg="white" h="23em" flexDirection="column" borderRadius="1.5em" w="18.5em">
               <Image
                 src={item.image}
                 w="100%"
-                h="30vh"
-                borderRadius="20px 20px 0px 0px"
+                h="12em"
+                borderRadius="1.5em 1.5em 0em 0em"
               ></Image>
-              <Box padding="1vmax">
-                <Text color={"purple.500"} fontSize="1.5vmax" fontWeight={600}>
+              <Box padding="0.7em" justifyContent="space-between">
+                <Text color="purple.500" fontSize="1.2em" fontWeight={600} maxH="1.5em">
                   $ {item.price}/month
                 </Text>
-                <Text fontSize="2vmax" fontWeight={600}>
+                <Text fontSize="1.5em" fontWeight={600} maxH="1.8em">
                   {item.name}
                 </Text>
-                <Text color={"gray"}>{item.address}</Text>
+                <Text color="gray" fontSize="1em" maxH="3em">{item.address}</Text>
                 <Divider />
-                <Flex justify={"space-between"}>
-                  <Text color={"gray"}>{item.bhk} beds</Text>
-                  <Text color={"gray"}>{item.bathrooms} bathrooms</Text>
-                  <Text color={"gray"}>{item.area} m2</Text>
+                <Flex justifyContent="space-between" maxH="1.5em" flexWrap="wrap">
+                  <Text color="gray" fontSize="1em">{item.bhk} beds</Text>
+                  <Text color="gray" fontSize="1em">{item.bathrooms} bathrooms</Text>
+                  <Text color="gray" fontSize="1em">{item.area} m2</Text>
                 </Flex>
               </Box>
             </Box>
